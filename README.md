@@ -7,6 +7,6 @@
 This will be my own adaptation of the Classic 1979 Arcade game Asteroids by Atari, Inc
 
 
-Corona SDK: https://coronalabs.com/
-Box2D Physics Engine: http://box2d.org/
-Lua: https://www.lua.org/
+##### Corona SDK: https://coronalabs.com/
+##### Box2D Physics Engine: http://box2d.org/
+##### Lua: https://www.lua.org/
