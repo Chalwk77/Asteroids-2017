@@ -1,1 +1,5 @@
-
+- varying sizes between 10, 20
+- 10 or more asteroid models
+- random X,Y spawn coordinates
+- random speed velocity
+- collision damage: 0.5 to 2.5
