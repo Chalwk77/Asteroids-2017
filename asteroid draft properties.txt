@@ -1,4 +1,4 @@
-- varying sizes between 10, 20
+- varying sizes between 1, 10
 - 10 or more asteroid models
 - random X,Y spawn coordinates
 - random speed velocity
