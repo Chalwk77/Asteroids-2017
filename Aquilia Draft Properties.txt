@@ -7,11 +7,6 @@ Angular Velocity = 50
 x,y Velocity w/boost = 1.5 (duration: 2 seconds)
 collision damage = based on collision-object size
 bullet damage = 1
-Modular: (yes)
 
-Module Segments: 
-- Canopy
-- Wings
-- Engines
-- Weapons
-- fuselage
+Destroyable Parts: 
+- Wings | Engines | Weapons | fuselage
