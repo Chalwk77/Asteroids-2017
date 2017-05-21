@@ -1,9 +1,9 @@
-On Game Launch: Short Animated cutscene
+- ENVIRONMENT: OSX / Windows
+- On Game Launch: Short Animated cutscene
 
 [------------------------]
    Menu Scene - [parent]
 [------------------------]
-
 1). Logo | Start Button (animated [scale in|out|glow]) | Options Button | Exit button
 2). Themed Background with asteroid particle effects
 
@@ -14,3 +14,9 @@ On Game Launch: Short Animated cutscene
 [----------------------------]
 
 UI Buttons: onClick (Select Ship | Upgrade | Sound Mute/Sound Resume)  
+
+
+
+[----------------------------]
+  Play Scene [parent]
+[----------------------------]
