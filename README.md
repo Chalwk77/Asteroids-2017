@@ -1,4 +1,4 @@
-# Game Title: Asteroids 2017
+# Game Title: Asteroids 2017 (subject to change)
 ### Intended Environment: Windows PC
 #### CURRENTLY IN DEVELOPMENT
 
