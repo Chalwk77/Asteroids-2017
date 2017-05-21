@@ -1,7 +1,7 @@
 - On Game Launch: Short Animated cutscene
 
 [------------------------]
-   Menu Scene - [menu-parent]
+   Menu Scene - [parent]
 [------------------------]
 
 1). Logo | Start Button (animated [scale in|out|glow]) | Options Button | Exit button
@@ -10,7 +10,7 @@
 
 
 [----------------------------]
-  Options Scene [menu-child]
+ Options Scene - [menu-child]
 [----------------------------]
 
 1). UI Buttons: onClick (Select Ship | Upgrade | Sound Mute/Sound Resume)  
@@ -18,5 +18,5 @@
 
 
 [----------------------------]
-  Play Scene [play-parent]
+     Play Scene - [parent]
 [----------------------------]
