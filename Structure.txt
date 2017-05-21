@@ -1,7 +1,7 @@
 - On Game Launch: Short Animated cutscene
 
 [------------------------]
-   Menu Scene - [parent]
+   Menu Scene - [menu-parent]
 [------------------------]
 
 1). Logo | Start Button (animated [scale in|out|glow]) | Options Button | Exit button
@@ -18,5 +18,5 @@
 
 
 [----------------------------]
-  Play Scene [parent]
+  Play Scene [play-parent]
 [----------------------------]
