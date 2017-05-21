@@ -1,4 +1,3 @@
-- ENVIRONMENT: OSX / Windows
 - On Game Launch: Short Animated cutscene
 
 [------------------------]
