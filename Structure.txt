@@ -3,6 +3,7 @@
 [------------------------]
    Menu Scene - [parent]
 [------------------------]
+
 1). Logo | Start Button (animated [scale in|out|glow]) | Options Button | Exit button
 2). Themed Background with asteroid particle effects
 
@@ -12,7 +13,7 @@
   Options Scene [menu-child]
 [----------------------------]
 
-UI Buttons: onClick (Select Ship | Upgrade | Sound Mute/Sound Resume)  
+1). UI Buttons: onClick (Select Ship | Upgrade | Sound Mute/Sound Resume)  
 
 
 
