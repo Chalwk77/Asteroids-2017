@@ -1,4 +1,5 @@
 # Game Title: Asteroids 2017
+### Intended Environment: Windows PC
+#### CURRENTLY IN DEVELOPMENT
 
-CURRENTLY IN DEVELOPMENT
-2D game for OSX and Windows being built with Corona SDK and Box2D physics Engine in the Lua Programming Language.
+2D game being built with Corona SDK and Box2D physics Engine in the Lua Programming Language.
