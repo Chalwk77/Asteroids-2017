@@ -4,4 +4,4 @@
 
 2D game being built with Corona SDK and Box2D physics Engine in the Lua Programming Language.
 
-This will be my own adaptation of the Classic 1979 Arcade game Asteroids by Atari. 
+This will be my own adaptation of the Classic 1979 Arcade game Asteroids by Atari, Inc
