@@ -6,8 +6,4 @@ inprog:
 
 
 
-[ ------------------ ]
-    Planning Phase
-[ ------------------ ]
-
-
+  Planning Phase...
