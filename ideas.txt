@@ -45,7 +45,8 @@ Keyboard,
 W (forward), A (left), S (backwards), D (right) | space {bullets} | shift {boost} | Tab {powerup}
 
 
-
+Mouse:
+left click, right click, middle-mouse-button.
 
 
 
