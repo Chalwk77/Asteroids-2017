@@ -35,7 +35,7 @@ throughout the game:
 - india: "about self"
 - india: "asks about you"
 <your character>
-- nethanial: ""
+- nethaniel: ""
 
 
 
@@ -44,9 +44,13 @@ control inputs:
 Keyboard,
 W (forward), A (left), S (backwards), D (right) | space {bullets} | shift {boost} | Tab {powerup}
 
-
 Mouse:
 left click, right click, middle-mouse-button.
+
+
+
+
+
 
 
 
