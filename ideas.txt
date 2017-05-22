@@ -1,3 +1,51 @@
 - Voice & Text Dialog
 - Story line
 - 2d character revealing tooltip and next task
+
+
+
+scene 1, act 1
+- player is introduced to "india", his co-pilot. 
+
+She reveals why you're in space in the first palce, 
+and then displays a tooltip explaining your first task.
+
+[cutscene | fade-in]
+- player has control of aircraft
+
+you're flying through space at light-speed, 
+avoiding asteroids and ai-controlled enemy ships.
+
+<cockpit voice is heard>
+- india, "Over there!" (indicating approaching enemy ship)
+
+your first task is to destroy that ship.
+<script> This enemy ship will 'persue and target you'.
+
+<variables> N number of points rewarded for destroying it.
+
+[tool-tip appears]
+<next task>
+- india: "say next task"
+
+
+throughout the game:
+<character development>
+- india: "humor"
+- india: "about self"
+- india: "asks about you"
+<your character>
+- nethanial: ""
+
+
+
+control inputs:
+
+Keyboard,
+W (forward), A (left), S (backwards), D (right) | space {bullets} | shift {boost} | Tab {powerup}
+
+
+
+
+
+
