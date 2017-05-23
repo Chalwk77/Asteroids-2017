@@ -8,14 +8,7 @@ This will be my own adaptation of the Classic 1979 Arcade game Asteroids by Atar
 
 Corona SDK: [weblink](https://coronalabs.com/) | Box2D Physics Engine: [weblink](http://box2d.org/) | Lua: [weblink](https://www.lua.org/)
 
-<<<<<<< HEAD
-> Screenplay Writer: Shoo
-> Level Art / Object and Environment Animations: Chalwk & <tbd>
-> Sound Effects: <tbd>
-> Background Music: <tbd>
-=======
-Screenplay Writer: Shoo
-Level Art / Object and Environment Animations: Chalwk & <tbd>
-Sound Effects: <tbd>
-Background Music: <tbd>
->>>>>>> e20f20ebc406fe43501bfcc735ead38d3065fd62
+##### Screenplay Writer: Shoo
+##### Level Art / Object and Environment Animations: Chalwk & <tbd>
+##### Sound Effects: <tbd>
+##### Background Music: <tbd>
