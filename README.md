@@ -10,5 +10,5 @@ Corona SDK: [weblink](https://coronalabs.com/) | Box2D Physics Engine: [weblink]
 
 > * Screenplay Writer: Shoo
 > * Level Art / Object and Environment Animations: Chalwk
-> * Sound Effects: to be decided
-> * Background Music: to be decided
+> * Sound Effects: Chalwk
+> * Music courtesy https://soundcloud.com/gianmarco-leone
