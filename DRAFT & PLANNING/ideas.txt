@@ -10,14 +10,22 @@ scene 1, act 1
 She reveals why you're in space in the first palce, 
 and then displays a tooltip explaining your first task.
 
+<physics> | <asteroid particle | dust particles>
+
 [cutscene | fade-in]
+<physics> | <asteroid particle | dust particles>
 - player has control of aircraft
 
 you're flying through space at light-speed, 
 avoiding asteroids and ai-controlled enemy ships.
 
+[show_task]
+<task: something>
+
 <cockpit voice is heard>
 - india, "Over there!" (indicating approaching enemy ship)
+
+
 
 your first task is to destroy that ship.
 <script> This enemy ship will 'persue and target you'.
@@ -26,7 +34,9 @@ your first task is to destroy that ship.
 
 [tool-tip appears]
 <next task>
-- india: "say next task"
+- india: "say_next_task"
+
+
 
 
 throughout the game:
@@ -35,12 +45,11 @@ throughout the game:
 - india: "about self"
 - india: "asks about you"
 <your character>
-- nethaniel: ""
+- nethaniel: "something"
 
 
 
 control inputs:
-
 Keyboard,
 W (forward), A (left), S (backwards), D (right) | space {bullets} | shift {boost} | Tab {powerup}
 
