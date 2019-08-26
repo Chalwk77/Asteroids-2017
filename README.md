@@ -6,7 +6,3 @@
 - This game is my own adaptation of the Classic 1979 Arcade game Asteroids by Atari, Inc
 
 Love2D: [weblink](https://love2d.org/) | Lua: [weblink](https://www.lua.org/)
-
-Legal notice:
-Asteroids 2019 contains the following library:
-Love2D - Copyright (C) 2006, 2019 LOVE Development Team (released under the zlib License version 0.7)
