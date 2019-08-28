@@ -31,7 +31,7 @@ local function drawLoadingBar()
         if (loader.resourceCount ~= 0) then
             percent = loader.loadedCount / loader.resourceCount
         end
-        love.graphics.printf(("Loading .. %d%%"):format(percent * 100), 0, y + 150, width, "center")
+        love.graphics.printf(("Loading ... %d%%"):format(percent * 100), 0, y + 150, width, "center")
     end
 
     love.graphics.setColor(47,79,79, 1)
@@ -74,6 +74,7 @@ function loadingState.start(game, finishCallback)
     loader.newFont(game.fonts, 3, 'fonts/CONFCRG_.ttf', 32)
     loader.newFont(game.fonts, 4, 'fonts/font.ttf', 128)
     loader.newFont(game.fonts, 5, 'fonts/arial.ttf', 14)
+    loader.newFont(game.fonts, 6, 'fonts/vector_battle.ttf', 64) -- Title Font
 
     loader.start(finishCallback, print)
 end

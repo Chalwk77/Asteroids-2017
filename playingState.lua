@@ -78,7 +78,7 @@ function playingState.start(game)
     useFontScore = game.fonts[1]
     useMessages = game.fonts[2]
     button_font = game.fonts[3]
-    title_font = game.fonts[4]
+    title_font = game.fonts[6]
     aboutMsgFont = game.fonts[5]
 
     -- Play background music:
@@ -111,10 +111,14 @@ function playingState.start(game)
 
     -- Create Satellite that drifts by:
     satellite.image = game.images[5]
-    satellite.posX = -500
-    satellite.posY = 15
-    satellite.velX = 25
-    satellite.velY = 15
+    satellite.posX = love.math.random() * (width + 1000) - 4500
+    satellite.posY = love.math.random() * (height + 1000) - 4500
+
+    satellite.velX = love.math.random(20,25)
+    satellite.velY = love.math.random(10,20)
+    satellite.changeRotation = false
+    satellite.rotation = 0
+    satellite.rotationAmount = 0.001
 
     -- Satellite beeping sound:
     satellite.sound = love.audio.newSource(game.sounds.satellite_beep)
@@ -130,12 +134,8 @@ function playingState.start(game)
     spaceship.coasting = game.images[7]
     spaceship.boosting = game.images[8]
     spaceship.useImage = "coasting"
-    -- spaceship.posX = ww / 2
-    -- spaceship.posY = wh / 2
-    spaceship.posX = width / 2
-    spaceship.posY = height / 2
-
-
+    spaceship.posX = ww / 2
+    spaceship.posY = wh / 2
     spaceship.direction = 0
     spaceship.health = start_health
     spaceship.acceleration = 250
@@ -158,11 +158,10 @@ function playingState.start(game)
     weapon.bullets = {}
 
     ------------------ CREATE MENU BUTTONS ------------------
-    local function newButton(text, fn, id)
+    local function newButton(text, fn)
         return {
             text = text,
             fn = fn,
-            id = id,
             now = false,
             last = false,
         }
@@ -177,7 +176,7 @@ function playingState.start(game)
             numAsteroids = 16
             difficulty = "Easy"
             StartGame()
-        end, "easy")
+        end)
     )
     table.insert(buttons, newButton(
         "Medium",
@@ -187,7 +186,7 @@ function playingState.start(game)
             numAsteroids = 24
             difficulty = "Medium"
             StartGame()
-        end, "medium")
+        end)
     )
     table.insert(buttons, newButton(
         "Hard",
@@ -197,7 +196,7 @@ function playingState.start(game)
             numAsteroids = 32
             difficulty = "Hard"
             StartGame()
-        end, "hard")
+        end)
     )
     table.insert(buttons, newButton(
         "Super Hard",
@@ -207,13 +206,13 @@ function playingState.start(game)
             numAsteroids = 64
             difficulty = "Super Hard"
             StartGame()
-        end, "superhard")
+        end)
     )
     table.insert(buttons, newButton(
         "Exit",
         function()
             love.event.quit(0)
-        end, "exit_game")
+        end)
     )
 end
 
@@ -227,7 +226,7 @@ function playingState.draw(dt)
     for _, star in ipairs(stars) do
         love.graphics.points(star[1], star[2])
     end
-    
+
     love.graphics.draw(moon.image, moon.posX, moon.posY)
 
     -- Game hasn't started yet (viewing main menu)
@@ -252,7 +251,7 @@ function playingState.draw(dt)
         -- Display Game Title
         love.graphics.setColor(normalColor)
         love.graphics.setFont(title_font)
-        love.graphics.printf("Asteroids 2019: The Game", 0, 5, 800, "center")
+        love.graphics.printf("Asteroids 2019\n   The Game", 0, 5, 800, "center")
         --
 
     elseif (game_started == 1) then -- Playing the Game!
@@ -303,7 +302,8 @@ function playingState.draw(dt)
     end
 
     --always draw satellite
-    love.graphics.draw(satellite.image, satellite.posX, satellite.posY)
+    love.graphics.draw(satellite.image, satellite.posX, satellite.posY, satellite.rotation)
+
 end
 
 function playingState.update(dt)
@@ -317,6 +317,7 @@ function playingState.update(dt)
 
     --Tell sound engine where satellite is so beep can change volume:
     satellite.sound:setPosition(satellite.posX, satellite.posY, 0)
+    love.graphics.draw(satellite.image, satellite.posX, satellite.posY, satellite.rotation)
 
     -- Move bullets - When they reach the edge of the screen, delete them:
     for i = #weapon.bullets, 1, -1 do
@@ -377,8 +378,8 @@ function playingState.update(dt)
         -- Iterate through the list of asteroids backwards.
         -- If go forwards we stand to miss an asteroid if we delete the current.
         for i = #asteroids, 1, -1 do
-            flagCollide = checkCollision(spaceship, asteroids[i], 21 + 72 * asteroids[i].size)
-            if flagCollide then
+            local flagCollide = checkCollision(spaceship, asteroids[i], 21 + 72 * asteroids[i].size)
+            if (flagCollide) then
                 if not spaceship.shipCollision:isPlaying() then
                     spaceship.health = spaceship.health - 1
                     love.audio.play(spaceship.shipCollision)
@@ -388,7 +389,7 @@ function playingState.update(dt)
         end
 
         local satelliteCollision = checkCollision(spaceship, satellite, 32)
-        if satelliteCollision then
+        if (satelliteCollision) then
             if not spaceship.shipCollision:isPlaying() then
                 spaceship.health = spaceship.health - 1
                 love.audio.play(spaceship.shipCollision)
@@ -400,7 +401,7 @@ function playingState.update(dt)
         for i = #weapon.bullets, 1, -1 do
             for j = #asteroids, 1, -1 do
                 -- The collision threshold distance is half a bullet width + half an asteroid width:
-                flagCollide = checkCollision(weapon.bullets[i], asteroids[j], 4 + 72 * asteroids[j].size)
+                local flagCollide = checkCollision(weapon.bullets[i], asteroids[j], 4 + 72 * asteroids[j].size)
                 if (flagCollide) then
 
                     -- a bullet hit an asteroid
@@ -533,6 +534,10 @@ function moveObject(spaceObject, dt, borderWidth, width, height)
     spaceObject.posX = spaceObject.posX + spaceObject.velX * dt
     spaceObject.posY = spaceObject.posY + spaceObject.velY * dt
 
+    if (spaceObject.changeRotation) then
+        spaceObject.rotation = spaceObject.rotation + spaceObject.rotationAmount
+    end
+
     -- Wrap the object from one side of the screen to the other:
     if (spaceObject.posX > width + borderWidth) then
         returnValue = true
@@ -636,15 +641,15 @@ function RenderMenuButtons()
                 my > by and my < by + button_height
 
         if (hovering) then
-            if (button.id == "easy") then
+            if (button.text == "Easy") then
                 color = { 0 / 255, 255 / 255, 0 / 255, button_alpha }
-            elseif (button.id == "medium") then
+            elseif (button.text == "Medium") then
                 color = { 180 / 255, 255 / 255, 0 / 255, button_alpha }
-            elseif (button.id == "hard") then
+            elseif (button.text == "Hard") then
                 color = { 290 / 255, 255 / 255, 0 / 255, button_alpha }
-            elseif (button.id == "superhard") then
+            elseif (button.text == "Super Hard") then
                 color = { 255 / 255, 0 / 255, 0 / 255, button_alpha }
-            elseif (button.id == "exit_game") then
+            elseif (button.text == "Exit") then
                 color = { 255, 0 / 255, 0 / 255, button_alpha }
             end
         end
@@ -653,7 +658,7 @@ function RenderMenuButtons()
         if (button.now and not button.last and hovering) then
 
             -- Play click sound:
-            if (button.id ~= "exit_game") and not button_click:isPlaying() then
+            if (button.text ~= "Exit") and not button_click:isPlaying() then
                 button_click:play()
             end
 
@@ -684,11 +689,11 @@ function RenderMenuButtons()
     end
 end
 
-function checkCollision(object1, object2, minDistance)
+function checkCollision(obj1, obj2, minDist)
     -- Using pythagean thereom to calculate the distance between the two objects
     -- distance = SquareRoot(Square(X2 - X1) + Square(Y2 - Y1))
-    local distance = math.sqrt((object1.posX - object2.posX) ^ 2 + (object1.posY - object2.posY) ^ 2)
-    if (distance ~= nil) and (distance <= minDistance) then
+    local dist = math.sqrt((obj1.posX - obj2.posX) ^ 2 + (obj1.posY - obj2.posY) ^ 2)
+    if (dist ~= nil) and (dist <= minDist) then
         return true
     else
         return false
