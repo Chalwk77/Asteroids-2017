@@ -54,7 +54,14 @@ function playingState.start(game)
     local function positionGraphic(image, X, Y)
         local x = math.floor(ww/2) - math.floor(image:getWidth()/2)
         local y = math.floor(wh/2) - math.floor(image:getHeight()/2)
-        return { posX = (ww - X), posY = Y, image = image }
+        return {
+            image = image,
+            posX = (ww - X),
+            posY = Y,
+            changeRotation = false,
+            rotation = 0,
+            rotationAmount = 0.001
+        }
     end
 
     -- Create Star Field:
@@ -227,7 +234,7 @@ function playingState.draw(dt)
         love.graphics.points(star[1], star[2])
     end
 
-    love.graphics.draw(moon.image, moon.posX, moon.posY)
+    love.graphics.draw(moon.image, moon.posX, moon.posY, moon.rotation)
 
     -- Game hasn't started yet (viewing main menu)
     if (game_started == 0) then
@@ -311,6 +318,10 @@ function playingState.update(dt)
     -- Update Spaceship and Satellite positions:
     moveObject(spaceship, dt, 45, ww, wh)
     moveObject(satellite, dt, 500, ww, wh)
+
+    if (moon.changeRotation) then
+        moon.rotation = moon.rotation + moon.rotationAmount
+    end
 
     --moveObject(spaceship, dt, 45, width, height)
     --moveObject(satellite, dt, 500, width, height)
