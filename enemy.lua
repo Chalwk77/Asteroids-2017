@@ -106,7 +106,6 @@ end
 
 function enemy.AI(dt, spaceship)
     local e = enemy[#enemy]
-
     enemy.speed = math.random(enemy.minSpeed, enemy.maxSpeed)
 
     -- X axis

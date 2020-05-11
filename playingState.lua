@@ -258,7 +258,7 @@ function playingState.draw(dt)
         -- Display Game Title
         love.graphics.setColor(normalColor)
         love.graphics.setFont(title_font)
-        love.graphics.printf("Asteroids 2019\n   The Game", 0, 5, 800, "center")
+        love.graphics.printf("Asteroids 2020\n   The Game", 0, 5, 800, "center")
         --
 
     elseif (game_started == 1) then -- Playing the Game!
@@ -701,8 +701,6 @@ function RenderMenuButtons()
 end
 
 function checkCollision(obj1, obj2, minDist)
-    -- Using pythagean thereom to calculate the distance between the two objects
-    -- distance = SquareRoot(Square(X2 - X1) + Square(Y2 - Y1))
     local dist = math.sqrt((obj1.posX - obj2.posX) ^ 2 + (obj1.posY - obj2.posY) ^ 2)
     if (dist ~= nil) and (dist <= minDist) then
         return true

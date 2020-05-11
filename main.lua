@@ -16,7 +16,7 @@ end
 
 function love.load()
 
-    -- Detect native desktop resolution and set window mode to fullscreen:
+    -- Detect native device (desktop or android screen) resolution and set window mode to fullscreen:
     local w, h = love.window.getDesktopDimensions()
     love.window.setMode(w, h, {
         fullscreen = true,

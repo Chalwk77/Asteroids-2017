@@ -1,9 +1,0 @@
-Licensing information
-=====================
-
-This game contains code from the following projects:
-
- - Love-Loader
-	Website: https://love2d.org/wiki/love-loader
-	License: MIT
-	Copyright (c) 2014 Enrique García Cota, Tanner Rogalsky
